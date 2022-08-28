@@ -24,13 +24,20 @@
                         <div class="hidden xl:block rounded-full h-12 w-12 border-4 border-red-400 overflow-hidden opacity-50">
                             <img src="{{ asset('storage/' . Auth()->user()->settings->avatar) }}" alt="user-avatar">
                         </div>
-                        <div>
-                            <input class="p-3 bg-gray-100 rounded-full sm:w-96" type="text" name="comment" id="comment" placeholder="Write your comment..." wire:model="comment">
-                        </div>
-                        <div>
-                            <button type="submit">Save Comment</button>
+                        <div class="flex lg:flex-row flew-col">
+                            <div>
+                                <input class="p-3 bg-gray-100 rounded-full sm:w-96" type="text" name="comment" id="comment" placeholder="Write your comment..." wire:model="comment">
+                            </div>
+                            <div>
+                                <button class="py-1 px-2 border border-green-400 text-green-400 hover:bg-green-400 bg-white duration-200 rounded-xl hover:text-white" type="submit">Save Comment</button>
+                            </div>
                         </div>
                     </div>
+                    @error('comment')
+                        <div class="p-2">
+                            <x-errors.form_error :message="$message" />
+                        </div>
+                    @enderror
                 </form>
         </div>
         <div class="flex justify-end pb-2 mt-3">

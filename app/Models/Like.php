@@ -2,23 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\Like;
 use App\Models\User;
-use App\Models\Comment;
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Image extends Model
+class Like extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'image_id',
-        'path',
-        'like',
-        'description',
-        'status',
-        'user_id'
     ];
 
     public function user()
@@ -26,13 +21,8 @@ class Image extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function comments()
+    public function image()
     {
-        return $this->hasMany(Comment::class);
-    }
-
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
+        return $this->belongsTo(Image::class);
     }
 }

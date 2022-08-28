@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Like;
 use App\Models\User;
 use App\Models\Image;
 use App\Models\Comment;
@@ -69,5 +70,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function followings()
     {
         return $this->belongsToMany(User::class, 'user_follower', 'follower_id', 'following_id');
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

@@ -24,7 +24,7 @@ class CommentForm extends Component
 
     public function submit()
     {
-        // $this->validate();
+        $this->validate();
 
         $comment = Comment::create([
             'comment' => $this->comment,

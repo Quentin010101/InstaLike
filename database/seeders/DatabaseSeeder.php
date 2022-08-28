@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
-        User::factory(30)
+        $nbUtilisateur = 30;
+
+        User::factory($nbUtilisateur)
         ->create();
 
         
@@ -49,7 +50,6 @@ class DatabaseSeeder extends Seeder
                     'created_at' => fake()->dateTimeBetween('-20 days', now())
                 ]);
             endfor;
-            
         endforeach;
 
 
@@ -61,6 +61,13 @@ class DatabaseSeeder extends Seeder
                     'image_id' => $image->id,
                     'user_id' => mt_rand(1,30),
                     'created_at' => fake()->dateTimeBetween('-20 days', now())
+                ]);
+            endfor;
+
+            for($i = 0; $i < mt_rand(8,15); $i++):
+                DB::table('likes')->insert([
+                    'user_id' => mt_rand(1,30),
+                    'image_id' => $image->id
                 ]);
             endfor;
         endforeach;
