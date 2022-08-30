@@ -1,4 +1,16 @@
 <div>
+    <div class="px-3 py-6 flex justify-between w-full font-semibold">
+        <div class="flex items-center gap-2 text-gray-700 cursor-pointer">
+            <livewire:like-livewire :image="$image" />
+        </div>
+        <div class="flex items-center gap-2 text-gray-700 font-semibold">
+            <x-bi-chat class="stroke-1 stroke-gray-800"/>
+            <h4>{{ $comments->count() }} Comments</h4> 
+        </div>
+    </div>
+    <div class="py-3 bg-gray-100 rounded-lg">
+        <p class="p-3 text-gray-600 font-semibold text-md">{{ $image->description }}</p>
+    </div>
     <div x-data="{ open: false }" class="min-h-full pt-4">
         <div x-show="open" @click.outside="open = false" x-transition.duration.300ms class="shadow-inner shadow-gray-200 p-2 rounded-lg">
                 @foreach ($comments as $comment)
@@ -24,9 +36,9 @@
                         <div class="hidden xl:block rounded-full h-12 w-12 border-4 border-red-400 overflow-hidden opacity-50">
                             <img src="{{ asset('storage/' . Auth()->user()->settings->avatar) }}" alt="user-avatar">
                         </div>
-                        <div class="flex lg:flex-row flew-col">
+                        <div class="flex items-center flex-col xl:flex-row gap-x-2 gap-y-2 justify-center w-full xl:w-auto">
                             <div>
-                                <input class="p-3 bg-gray-100 rounded-full sm:w-96" type="text" name="comment" id="comment" placeholder="Write your comment..." wire:model="comment">
+                                <input class="p-3 bg-gray-100 rounded-full w-96" type="text" name="comment" id="comment" placeholder="Write your comment..." wire:model="comment">
                             </div>
                             <div>
                                 <button class="py-1 px-2 border border-green-400 text-green-400 hover:bg-green-400 bg-white duration-200 rounded-xl hover:text-white" type="submit">Save Comment</button>

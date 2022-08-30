@@ -2472,8 +2472,47 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+
+window.addEventListener('DOMContentLoaded', function (e) {
+  function showLoading() {
+    document.getElementById('loading-component').classList.remove('hidden');
+  }
+
+  function hideLoading() {
+    document.getElementById('loading-component').classList.add('hidden');
+  }
+
+  window.addEventListener('scroll', function (e) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      showLoading();
+      var url = window.location.href;
+      var nextCursor = document.getElementById('next-cursor').innerHTML || null;
+
+      if (nextCursor) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default()({
+          method: 'get',
+          url: url + '?cursor=' + nextCursor,
+          responseType: 'json',
+          data: {
+            nextCursor: nextCursor
+          }
+        }).then(function (response) {
+          if (response.data.success) {
+            document.getElementById('new-images').insertAdjacentHTML('beforeend', response.data.html);
+            document.getElementById('next-cursor').innerHTML = response.data.nextCursor;
+            hideLoading();
+          }
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
+    }
+  });
+});
 
 /***/ }),
 

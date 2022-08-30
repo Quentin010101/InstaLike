@@ -9,7 +9,7 @@
                 </div>
             @endif
             @if($isActiveFeed)
-                <x-dashbord.feed_main :images="$images" />
+                <x-dashbord.feed_main :images="$images" :nextCursor="$nextCursor" />
             @endif
             @if($isActiveProfile)
 

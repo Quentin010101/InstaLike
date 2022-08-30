@@ -25,7 +25,7 @@
                     <h3>{{ $image->user->settings->city }}</h3>
                 @endif
             </div>
-        </div>
+        </div> 
         <div class="text-gray-400 mr-0 ml-auto text-xs">
             <h3>{{ $image->created_at->format('d/m/Y') }}</h3>
             <h3>at {{ $image->created_at->format('H:i') }}</h3>
@@ -35,17 +35,7 @@
         <img class="object-scale-down max-h-[700px] w-full rounded-xl " src="{{ asset('storage/' . $image->path) }}"
             alt="image">
     </div>
-    <div class="px-3 py-6 flex justify-between w-full font-semibold">
-        <div class="flex items-center gap-2 text-gray-700 cursor-pointer">
-            <livewire:like-livewire :image="$image" />
-        </div>
-        <div class="flex items-center gap-2 text-gray-700 font-semibold">
-            {{-- <h4>{{ $comments[$image->id]->count() }} Comments</h4> --}}
-        </div>
-    </div>
-    <div class="py-3 bg-gray-100 rounded-lg">
-        <p class="p-3 text-gray-600 font-semibold text-md">{{ $image->description }}</p>
-    </div>
+    
     <div>
         <livewire:comment-form :image="$image" />
     </div>

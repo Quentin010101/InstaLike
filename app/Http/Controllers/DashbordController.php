@@ -17,42 +17,45 @@ class DashbordController extends Controller
     protected $isActiveFeed = false;
     protected $isActiveProfile = false;
     protected $isActiveSettings = false;
+    protected $user;
 
     public function show_feed()
     {
+
+        $user = Auth::user();
+
+        //Cursor Pagination
+        $nextCursor = request()->query('nextCursor') ? Cursor::fromEncoded(request()->query('nextCursor')) : null;
+        // Page feed active
         $this->isActiveFeed = true;
 
+        // Retrieve user follower
+        $user_follower = DB::table('user_follower')->where('follower_id', '=', $user->id)->pluck('following_id');
+        $id_array = $user_follower->toArray();
 
-        $user = Auth()->user();
+        // Add user id
+        array_push($id_array, $user->id);
 
-        $user_following = $user->followings;
+        // Retrieve Images
+        $images = Image::latest('created_at')
+        ->cursorPaginate(4, ['id', 'path', 'description', 'user_id', 'created_at'], 'cursor', $nextCursor);
 
-        // Images
-        $image_user = [Image::where('user_id', '=', Auth()->user()->id)->get()];
-        foreach($user_following as $following):
-            $image = Image::where('user_id', '=', $following->id)->get();
-            array_push($image_user, $image);
-        endforeach;
-        $images = collect($image_user)->collapse()->sortByDesc('created_at');
+        if($images->hasMorePages()):
+            $nextCursor = $images->nextCursor()->encode();
+        endif;
 
-        // //all user id
-        // $keys = $comments->groupBy('user_id')->keys()->toArray();
-        // if(!in_array(Auth()->user()->id, $keys)):
-        //     array_push($keys, Auth()->user()->id);
-        // endif;
-
-        // //all user 
-        // $users = [];
-        // for($i = 0; $i < count($keys); $i++):
-        //     $user = User::where('id', '=', $keys[$i])->get();
-        //     array_push($users, $user);
-        // endfor;
-        // $usersComment = collect($users)->collapse()->groupBy('id');
-     
-
+        if(request()->ajax()){
+            $returnHTML = view('components.scroll')->with('images', $images)->render();
+            return response()->json([
+                'success' => true,
+                'html' => $returnHTML,
+                'nextCursor' => $nextCursor,
+            ]);
+        }
             
         return view('user.dashbord', [
             'images' => $images,
+            'nextCursor' => $nextCursor ?? '',
             'isActiveFeed' => $this->isActiveFeed,
             'isActiveProfile' => $this->isActiveProfile,
             'isActiveSettings' => $this->isActiveSettings,

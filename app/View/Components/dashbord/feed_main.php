@@ -7,16 +7,16 @@ use Illuminate\View\Component;
 class feed_main extends Component
 {
     public $all_images;
+    public $nextCursor;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($all_images)
+    public function __construct($nextCursor)
     {
-        $this->all_images = $all_images;
-
+        $this->nextCursor = $nextCursor;
     }
 
     /**
