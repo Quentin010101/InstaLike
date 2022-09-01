@@ -14,7 +14,7 @@
                 </div>
             @endif
             @if($isActiveProfile)
-
+                <livewire:profile>
             @endif
             @if($isActiveSettings)
 

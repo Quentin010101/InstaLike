@@ -30,8 +30,8 @@
             <h3>at {{ $image->created_at->format('H:i') }}</h3>
         </div>
     </div>
-    <div class="rounded-xl overflow-hidden max-h-[50vh] w-fit mx-auto">
-        <img  class="object-scale-down max-h-[50vh] w-full rounded-xl " src="{{ asset('storage/' . $image->path) }}"
+    <div class="rounded-xl overflow-hidden min-h-[300px] max-h-[50vh] w-fit mx-auto">
+        <img  class="object-scale-down  min-h-[300px] max-h-[50vh] w-full rounded-xl " src="{{ asset('storage/' . $image->path) }}"
             alt="image">
     </div>
     

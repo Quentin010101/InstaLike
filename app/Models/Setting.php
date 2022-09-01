@@ -12,6 +12,7 @@ class Setting extends Model
 
     protected $fillable = [
         'user_id',
+        'pseudo'
     ];
     
     public function users()

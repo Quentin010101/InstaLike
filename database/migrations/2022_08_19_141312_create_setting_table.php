@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('avatar')->default('Avatar/default-avatar.png');
             $table->string('country')->nullable();
             $table->string('city')->nullable();
-            $table->string('lastname')->nullable();
+            $table->string('pseudo')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
