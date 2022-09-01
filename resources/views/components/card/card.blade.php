@@ -1,5 +1,4 @@
-<div
-    class="bg-white pt-12 px-3 md:px-6 xl:px-12 pb-6 rounded-xl my-5 2xl:w-[900px] xl:w-[700px] lg:w-[500px] shadow-md shadow-gray-300">
+<div class="bg-white pt-12 px-3 md:px-6 xl:px-12 pb-6 rounded-xl my-5 2xl:w-[900px] xl:w-[700px] lg:w-[500px] shadow-md shadow-gray-300">
     <div class="flex gap-x-3 pb-4">
         @if ($image->user->id == Auth()->user()->id)
             <div class="bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[4.5rem] h-[4.5rem] flex justify-center items-center">
@@ -31,12 +30,12 @@
             <h3>at {{ $image->created_at->format('H:i') }}</h3>
         </div>
     </div>
-    <div class="rounded-xl overflow-hidden max-h-[700px] w-fit mx-auto">
-        <img class="object-scale-down max-h-[700px] w-full rounded-xl " src="{{ asset('storage/' . $image->path) }}"
+    <div class="rounded-xl overflow-hidden max-h-[50vh] w-fit mx-auto">
+        <img class="img" class="object-scale-down max-h-[50vh] w-full rounded-xl " src="{{ asset('storage/' . $image->path) }}"
             alt="image">
     </div>
     
     <div>
-        <livewire:comment-form :image="$image" />
+        <livewire:comment-form :image="$image" :wire:key="$image->id" > 
     </div>
 </div>

@@ -9,7 +9,9 @@
                 </div>
             @endif
             @if($isActiveFeed)
-                <x-dashbord.feed_main :images="$images" :nextCursor="$nextCursor" />
+                <div class="relative bg-gray-100 px-2 sm:px-4 md:px-6 lg:px-12 xl:px-32 flex flex-col items-center gap-y-5 h-full">
+                    <livewire:card-container >
+                </div>
             @endif
             @if($isActiveProfile)
 

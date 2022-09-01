@@ -22,40 +22,9 @@ class DashbordController extends Controller
     public function show_feed()
     {
 
-        $user = Auth::user();
-
-        //Cursor Pagination
-        $nextCursor = request()->query('nextCursor') ? Cursor::fromEncoded(request()->query('nextCursor')) : null;
-        // Page feed active
         $this->isActiveFeed = true;
 
-        // Retrieve user follower
-        $user_follower = DB::table('user_follower')->where('follower_id', '=', $user->id)->pluck('following_id');
-        $id_array = $user_follower->toArray();
-
-        // Add user id
-        array_push($id_array, $user->id);
-
-        // Retrieve Images
-        $images = Image::latest('created_at')
-        ->cursorPaginate(4, ['id', 'path', 'description', 'user_id', 'created_at'], 'cursor', $nextCursor);
-
-        if($images->hasMorePages()):
-            $nextCursor = $images->nextCursor()->encode();
-        endif;
-
-        if(request()->ajax()){
-            $returnHTML = view('components.scroll')->with('images', $images)->render();
-            return response()->json([
-                'success' => true,
-                'html' => $returnHTML,
-                'nextCursor' => $nextCursor,
-            ]);
-        }
-            
         return view('user.dashbord', [
-            'images' => $images,
-            'nextCursor' => $nextCursor ?? '',
             'isActiveFeed' => $this->isActiveFeed,
             'isActiveProfile' => $this->isActiveProfile,
             'isActiveSettings' => $this->isActiveSettings,

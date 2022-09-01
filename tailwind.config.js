@@ -13,6 +13,15 @@ module.exports = {
       },
       spacing:{
         '128': '1000px'
+      },
+      keyframes:{
+        'heart' : {
+          '0%, 100%' : { transform: 'scale(1)' },
+          '50%' : { transform: 'scale(1.25)'}
+        }
+      },
+      animation:{
+        'heart' : 'heart 0.6s ease-in'
       }
     },
   },

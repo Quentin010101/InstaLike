@@ -1,6 +1,6 @@
 <aside class="w-64 lg:w-80 border-r fixed top-16 left-0 hidden md:block md:h-screen shadow shadow-gray-400">
     <div class="p-4 flex flex-col items-center ">
-        <div class="bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[6.6rem] h-[6.6rem] flex justify-center items-center">
+        <div class="mt-3 bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[6.6rem] h-[6.6rem] flex justify-center items-center">
             <div class="my-3 rounded-full overflow-hidden w-24 h-24 bg-white">
                 <img src="{{ asset('storage/' . Auth()->user()->settings->avatar) }}" alt="avatar">
             </div>

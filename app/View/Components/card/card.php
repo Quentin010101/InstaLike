@@ -1,22 +1,22 @@
 <?php
 
-namespace App\View\Components\dashbord;
+namespace App\View\Components\card;
 
 use Illuminate\View\Component;
 
-class feed_main extends Component
+class card extends Component
 {
-    public $all_images;
-    public $nextCursor;
+    public $image;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($nextCursor)
+    public function __construct($image)
     {
-        $this->nextCursor = $nextCursor;
+        $this->image = $image;
+
     }
 
     /**
@@ -26,6 +26,6 @@ class feed_main extends Component
      */
     public function render()
     {
-        return view('components.dashbord.feed_main');
+        return view('components.card.card');
     }
 }
