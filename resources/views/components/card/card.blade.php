@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="rounded-xl overflow-hidden max-h-[50vh] w-fit mx-auto">
-        <img class="img" class="object-scale-down max-h-[50vh] w-full rounded-xl " src="{{ asset('storage/' . $image->path) }}"
+        <img  class="object-scale-down max-h-[50vh] w-full rounded-xl " src="{{ asset('storage/' . $image->path) }}"
             alt="image">
     </div>
     
