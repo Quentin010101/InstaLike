@@ -5,8 +5,13 @@
                 <img src="{{ asset('storage/' . Auth()->user()->settings->avatar) }}" alt="avatar">
             </div>
         </div>
-        <div class="py-3 w-full flex justify-center">
-            <h2 class="text-base font-bold text-gray-700">{{ Auth()->user()->name }}</h2>
+        <div class="py-3 w-full flex items-center flex-col ">
+            <h2 class="text-base font-bold text-gray-700">{{ Auth()->user()->name }}
+                 @isset(Auth()->user()->lastname)
+                        {{ Auth()->user()->lastname }}
+                 @endisset
+                </h2>
+            <h3 class="text-base font-semibold text-gray-500">{{ Auth()->user()->settings->pseudo }}</h3>
         </div>
         <div class="py-3 w-full flex justify-around">
             <div class="flex flex-col items-center">

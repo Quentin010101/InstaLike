@@ -12,7 +12,7 @@
             </div>
         @endif
         <div class="flex flex-col justify-center">
-            <h3 class="text-base font-semibold text-gray-600">{{ $image->user->name }}</h3>
+            <h3 class="text-base font-semibold text-gray-600">{{ $image->user->settings->pseudo }}</h3>
             <div class="flex gap-x-2 text-sm font-semibold text-gray-400">
                 @if ($image->user->settings->country)
                     <h3>{{ $image->user->settings->country }}</h3>
