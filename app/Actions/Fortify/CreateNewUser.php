@@ -23,6 +23,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+            'pseudo' => ['required', 'string', 'max:255', 'unique:settings,pseudo'],
             'email' => [
                 'required',
                 'string',
@@ -40,7 +41,8 @@ class CreateNewUser implements CreatesNewUsers
         ]);
 
         Setting::create([
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'pseudo' => $input['pseudo']
         ]);
 
         return $user;

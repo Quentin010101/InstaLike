@@ -8,11 +8,14 @@
                 <div class="w-7/12 hidden md:block">
                     <img class="object-cover h-full blur-xs" src="{{ asset('asset/image/login_image.jpg') }}" alt="">
                 </div>
-                <div class="p-10">
+                <div class="py-10 px-5 lg:px-10">
                     <h2 class="text-xl font-semibold" >Create a new account</h2>
-                    <form class="p-5 h-5/6 flex flex-col justify-center" action="/register" method="post">
+                    <form class="py-10 px-2 lg:px-5 h-5/6 flex flex-col justify-center" action="/register" method="post">
                         @csrf
-                        <x-inputs.name id="name" name="name" label="Name"/>
+                        <div class="flex flex-col xl:flex-row">
+                            <x-inputs.name id="name" name="name" label="Name" placeholder="Enter your name" />
+                            <x-inputs.name id="pseudo" name="pseudo" label="Pseudo" placeholder="Choose your pseudo" />
+                        </div>
                         <x-inputs.email id="email" name="email" label="Email"/>
                         <x-inputs.password id="password" name="password" label="Password" placeholder="Enter your password" />
                         <x-inputs.password id="password_confirmation" name="password_confirmation" label="Password confirmation" placeholder="Confirm your password" />

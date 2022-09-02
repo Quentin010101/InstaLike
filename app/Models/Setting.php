@@ -12,7 +12,9 @@ class Setting extends Model
 
     protected $fillable = [
         'user_id',
-        'pseudo'
+        'pseudo',
+        'city',
+        'country'
     ];
     
     public function users()

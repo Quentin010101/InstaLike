@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         foreach(User::all() as $user):
             DB::table('settings')->insert([
                 'user_id' => $user->id,
+                'pseudo' => fake()->name(),
                 'avatar' => 'Avatar/avatar' . rand(1,11) . '.png',
                 'country' => fake()->country(),
                 'city' => fake()->city(),
