@@ -2,7 +2,7 @@
     <x-navigation></x-navigation>
     <div class="flex relative min-h-screen">
         <x-aside_user :isActiveFeed="$isActiveFeed" :isActiveProfile="$isActiveProfile" :isActiveSettings="$isActiveSettings"></x-aside_user>
-        <main class="md:ml-64 lg:ml-80 w-full pt-16">
+        <main class="md:ml-64 lg:ml-80 w-full pt-16 bg-gray-100">
             @if(session('status'))
                 <div>
                     {{ session('status') }}

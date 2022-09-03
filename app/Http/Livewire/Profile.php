@@ -45,7 +45,6 @@ class Profile extends Component
     public function avatar_upload()
     { 
         $this->validate([
-
             'avatar' => 'image|max:1024',
         ]);
 
@@ -56,6 +55,10 @@ class Profile extends Component
         $settings = Setting::where('user_id', '=', $user->id)->first();
         $settings->avatar = $path;
         $settings->save();
+
+        unset($this->avatar);
+
+        $this->emit('update_aside');
     }
 
     public function submit()
@@ -71,8 +74,8 @@ class Profile extends Component
 
         if($user->isClean() && $settings->isClean()){
             $this->message_update = '';
-
         }
+
         if($user->isDirty()){
             $user->save();
             $this->message_update = 'Your informations have been updated';
@@ -82,6 +85,9 @@ class Profile extends Component
             $settings->save();
             $this->message_update = 'Your informations have been updated';
         }
+
+        $this->emit('update_aside');
+
     }
 
     public function render()
