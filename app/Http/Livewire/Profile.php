@@ -5,15 +5,21 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use App\Models\Setting;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Collection;
 
 class Profile extends Component
 {
+
+    use WithFileUploads;
+    
     public $lastname; 
     public $name; 
     public $pseudo;
     public $message_update;
+    public $avatar;
+    public $avatar_url;
 
     protected function rules()
     {
@@ -33,6 +39,23 @@ class Profile extends Component
         $this->lastname = $user->lastname;
         $this->name = $user->name;
         $this->pseudo = $user->settings->pseudo;
+        $this->avatar_url = $user->settings->avatar;
+    }
+
+    public function avatar_upload()
+    { 
+        $this->validate([
+
+            'avatar' => 'image|max:1024',
+        ]);
+
+        $path = $this->avatar->store('Avatar','public');
+        $this->avatar_url = $path;
+
+        $user = User::find(Auth::user()->id);
+        $settings = Setting::where('user_id', '=', $user->id)->first();
+        $settings->avatar = $path;
+        $settings->save();
     }
 
     public function submit()
@@ -59,9 +82,6 @@ class Profile extends Component
             $settings->save();
             $this->message_update = 'Your informations have been updated';
         }
-
-        
-
     }
 
     public function render()

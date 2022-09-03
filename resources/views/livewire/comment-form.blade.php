@@ -34,7 +34,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-sm font-semibold text-gray-400">
-                                        {{ $comment->user->name }}</h4>
+                                        {{ $comment->user->settings->pseudo }}</h4>
                                     <h4 class="text-xs text-gray-300">{{ $comment->created_at->format('d/m/y') }} at
                                         {{ $comment->created_at->format('H:i') }}</h4>
                                 </div>

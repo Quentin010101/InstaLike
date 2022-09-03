@@ -17,7 +17,7 @@ module.exports = {
       keyframes:{
         'heart' : {
           '0%, 100%' : { transform: 'scale(1)' },
-          '50%' : { transform: 'scale(1.25)'}
+          '50%' : { transform: 'scale(1.55)'}
         },
         'fade' : {
           'to' : { opacity: '0' },
@@ -25,7 +25,7 @@ module.exports = {
         },
       },
       animation:{
-        'heart' : 'heart 0.6s ease-in',
+        'heart' : 'heart 0.8s ease-in',
         'fade' : 'fade 1.5s ease-in 3s forwards',
       }
     },
