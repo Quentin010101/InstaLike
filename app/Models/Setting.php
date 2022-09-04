@@ -14,7 +14,8 @@ class Setting extends Model
         'user_id',
         'pseudo',
         'city',
-        'country'
+        'country',
+        'description'
     ];
     
     public function users()

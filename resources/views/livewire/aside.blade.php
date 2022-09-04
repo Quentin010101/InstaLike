@@ -1,7 +1,7 @@
 <div class="p-4 flex flex-col items-center ">
     <div
         class="mt-3 bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[6.6rem] h-[6.6rem] flex justify-center items-center">
-        <div class="my-3 rounded-full overflow-hidden w-24 h-24 bg-white">
+        <div class="my-3 rounded-full overflow-hidden w-24 h-24 bg-white dark:bg-gray-600">
             <img src="{{ asset('storage/' . $settings->avatar) }}" alt="avatar">
         </div>
     </div>

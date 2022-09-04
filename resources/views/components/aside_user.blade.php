@@ -1,4 +1,4 @@
-<aside class="w-64 lg:w-80 border-r fixed top-16 left-0 hidden md:block md:h-screen shadow shadow-gray-400">
+<aside class="w-64 lg:w-80 border-r fixed top-16 left-0 hidden md:block md:h-screen shadow shadow-gray-400 bg-white dark:bg-gray-600">
     <livewire:aside></livewire:aside>
     <div class="border-t py-8">
         <nav>
