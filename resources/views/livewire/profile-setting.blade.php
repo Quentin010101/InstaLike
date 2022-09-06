@@ -1,4 +1,4 @@
-<div class="p-2  shadow-md rounded-xl">
+<div class="p-2  shadow-md dark:shadow-lg rounded-xl">
     <div>
         <h2 class="font-semibold text-lg py-3 text-red-400">About yourself</h2>
         <form wire:submit.prevent="submit">

@@ -47,7 +47,6 @@ class DatabaseSeeder extends Seeder
                     'path' => 'Images/' . rand(1,61) . '.jpg',
                     'like' => mt_rand(2,560),
                     'description' => fake()->sentence(rand(12,22)),
-                    'status' => mt_rand(1,2),
                     'created_at' => fake()->dateTimeBetween('-20 days', now())
                 ]);
             endfor;

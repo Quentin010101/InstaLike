@@ -17,7 +17,6 @@ class DashbordController extends Controller
     protected $isActiveFeed = false;
     protected $isActiveProfile = false;
     protected $isActiveSettings = false;
-    protected $user;
 
     public function show_feed()
     {
@@ -44,7 +43,12 @@ class DashbordController extends Controller
 
     public function show_settings()
     {
+        $user = Auth::user();
+
         $this->isActiveSettings = true;
+
+        // Get theme
+        $setting = Setting::where('user_id', '=', $user->id);
 
         return view('user.dashbord', [
             'isActiveFeed' => $this->isActiveFeed,

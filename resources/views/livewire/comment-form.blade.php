@@ -1,6 +1,6 @@
 <div>
     <div class="px-3 py-6 flex justify-between w-full font-semibold">
-        <div class="flex items-center gap-2 text-gray-700 cursor-pointer">
+        <div class="flex items-center gap-2 text-gray-700 dark:text-gray-100 cursor-pointer">
             <div class="flex gap-x-2 items-center" wire:click="like">
                 <x-heroicon-o-heart @class([
                     'h-5',
@@ -12,7 +12,7 @@
                 <h4>{{ $count }} Like</h4>
             </div>
         </div>
-        <div class="flex items-center gap-2 text-gray-700 font-semibold">
+        <div class="flex items-center gap-2 text-gray-700 dark:text-gray-100 font-semibold">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z" />
             </svg>              
@@ -20,8 +20,8 @@
             <h4>Comments</h4>
         </div>
     </div>
-    <div class="py-3 bg-gray-100 rounded-lg">
-        <p class="p-3 text-gray-600 font-semibold text-md">{{ $image->description }}</p>
+    <div class="py-3 bg-gray-100 dark:bg-gray-400 rounded-lg">
+        <p class="p-3 text-gray-600 dark:text-gray-100 font-semibold text-md">{{ $image->description }}</p>
     </div>
     <div x-data="{ open: false }" class="min-h-full pt-4">
         <div x-show="open" @click.outside="open = false" x-transition.duration.300ms>
@@ -41,7 +41,7 @@
                                         {{ $comment->created_at->format('H:i') }}</h4>
                                 </div>
                             </div>
-                            <p class="text-md text-gray-600 px-4">{{ $comment->comment }}</p>
+                            <p class="text-md text-gray-600 dark:text-gray-100 px-4">{{ $comment->comment }}</p>
                         </div>
                     @endforeach
                 </div>
@@ -78,7 +78,7 @@
         </div>
         <div class="flex justify-end pb-2 mt-3">
             <div
-                class="flex items-center text-gray-600 hover:text-gray-500 duration-300">
+                class="flex items-center text-gray-600 dark:text-gray-300 dark:hover:text-gray-100 hover:text-gray-500 duration-300">
                 <button x-text="open ? 'see less..' : 'see more..'"
                     class="font-mono w-24 px-2 py-1 font-semibold text-sm" @click="open = ! open"></button>
             </div>

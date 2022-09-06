@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('pseudo')->nullable();
             $table->string('description')->nullable();
+            $table->set('theme', ['light', 'dark'])->default('light');
+            $table->set('privacy', ['private', 'public'])->default('public');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

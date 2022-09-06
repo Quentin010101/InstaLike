@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('path');
             $table->integer('like')->default(0);
             $table->string('description')->nullable();
-            $table->set('status', ['anonym', 'public']);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

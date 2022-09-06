@@ -6,25 +6,25 @@
         </div>
     </div>
     <div class="py-3 w-full flex items-center flex-col ">
-        <h2 class="text-base font-bold text-gray-700">{{ $user->name }}
+        <h2 class="text-base font-bold text-gray-700 dark:text-gray-100">{{ $user->name }}
             @isset($user->lastname)
                 {{ $user->lastname }}
             @endisset
         </h2>
-        <h3 class="text-base font-semibold text-gray-500">{{ $settings->pseudo }}</h3>
+        <h3 class="text-base font-semibold text-gray-500 dark:text-gray-300">{{ $settings->pseudo }}</h3>
     </div>
     <div class="py-3 w-full flex justify-around">
         <div class="flex flex-col items-center">
-            <h3 class="font-bold text-gray-300 text-base">{{ $images_count }}</h3>
-            <h3 class="font-bold text-sm text-gray-700">Post</h3>
+            <h3 class="font-bold text-gray-300 dark:text-gray-800 text-base">{{ $images_count }}</h3>
+            <h3 class="font-bold text-sm text-gray-700 dark:text-gray-400">Post</h3>
         </div>
         <div class="flex flex-col items-center">
-            <h3 class="font-bold text-gray-300 text-base">{{ $followers_count }}</h3>
-            <h3 class="font-bold text-sm text-gray-700">Followers</h3>
+            <h3 class="font-bold text-gray-300 dark:text-gray-800 text-base">{{ $followers_count }}</h3>
+            <h3 class="font-bold text-sm text-gray-700 dark:text-gray-400">Followers</h3>
         </div>
         <div class="flex flex-col items-center">
-            <h3 class="font-bold text-gray-300 text-base">{{ $followings_count }}</h3>
-            <h3 class="font-bold text-sm text-gray-700">Following</h3>
+            <h3 class="font-bold text-gray-300 dark:text-gray-800 text-base">{{ $followings_count }}</h3>
+            <h3 class="font-bold text-sm text-gray-700 dark:text-gray-400">Following</h3>
         </div>
     </div>
 </div>

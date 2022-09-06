@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashbordController;
 use App\Http\Controllers\ImageUploadController;
@@ -20,17 +21,26 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dashbord', [DashbordController::class, 'show_feed'])->middleware('auth','verified');
-Route::get('/dashbord/show', [DashbordController::class, 'show'])->middleware('auth','verified');
-Route::get('/dashbord/feed', [DashbordController::class, 'show_feed'])->middleware('auth','verified');
-Route::get('/dashbord/profile', [DashbordController::class, 'show_profile'])->middleware('auth','verified');
-Route::get('/dashbord/settings', [DashbordController::class, 'show_settings'])->middleware('auth','verified');
+// Route::get('/dashbord', [DashbordController::class, 'show_feed'])->middleware('auth','verified');
+// Route::get('/dashbord/show', [DashbordController::class, 'show'])->middleware('auth','verified');
+// Route::get('/dashbord/feed', [DashbordController::class, 'show_feed'])->middleware('auth','verified');
+// Route::get('/dashbord/profile', [DashbordController::class, 'show_profile'])->middleware('auth','verified');
+// Route::get('/dashbord/settings', [DashbordController::class, 'show_settings'])->middleware('auth','verified');
 
-Route::post('/comments/store/{id}', [CommentController::class , 'store']);
+Route::middleware(['auth','verified'])->group( function(){
+    Route::get('/dashbord', [DashbordController::class, 'show_feed']);
+    Route::get('/dashbord/show', [DashbordController::class, 'show']);
+    Route::get('/dashbord/feed', [DashbordController::class, 'show_feed']);
+    Route::get('/dashbord/profile', [DashbordController::class, 'show_profile']);
+    Route::get('/dashbord/settings', [DashbordController::class, 'show_settings']);
 
-Route::post('/upload-image', [ImageUploadController::class, 'store_image']);
-
-Route::get('/avatar', function(){
-    return view('avatar');
+    Route::post('/theme', [ThemeController::class, 'update']);
 });
-Route::post('/avatar', [ImageUploadController::class, 'store_avatar']);
+// Route::post('/comments/store/{id}', [CommentController::class , 'store']);
+
+// Route::post('/upload-image', [ImageUploadController::class, 'store_image']);
+
+// Route::get('/avatar', function(){
+//     return view('avatar');
+// });
+// Route::post('/avatar', [ImageUploadController::class, 'store_avatar']);

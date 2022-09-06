@@ -12,21 +12,21 @@
                             <div>
                                 <div class="md:hidden">
                                 </div>
-                                <input type="submit" value="Logout">
+                                <input class="dark:text-gray-400 dark:hover:text-gray-200 duration-300 cursor-pointer" type="submit" value="Logout">
                             </div>
                         </form>
                     </li>
                     <li>
-                        <a href="{{ url('/dashbord') }}">Dashbord</a>
+                        <a class="dark:text-gray-400 dark:hover:text-gray-200 duration-300" href="{{ url('/dashbord') }}">Dashbord</a>
                     </li>
                 @endauth
 
                 @guest
                     <li>
-                        <a href="{{ url('/login') }}">login</a>
+                        <a class="dark:text-gray-400 dark:hover:text-gray-200 duration-300" href="{{ url('/login') }}">login</a>
                     </li>
                     <li>
-                        <a href="{{ url('/register') }}">register</a>
+                        <a class="dark:text-gray-400 dark:hover:text-gray-200 duration-300" href="{{ url('/register') }}">register</a>
                     </li>
                 @endguest
             </ul>
