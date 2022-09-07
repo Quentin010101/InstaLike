@@ -30,7 +30,7 @@
             @if ($isActiveSettings)
             <div class="mt-8 flex bg-gray-100 dark:bg-gray-800">
                 <div class="bg-white dark:bg-gray-600 mx-3 lg:mx-6 xl:mx-12 rounded-xl p-5 lg:p-10 w-full">
-                    <livewire:setting>
+                    <livewire:settings-page>
                 </div>
             </div>
             @endif

@@ -30,7 +30,7 @@
                 @endif
             </div>
             <div class="my-5 w-full flex justify-center">
-                <x-buttons.validation wire:dirty>
+                <x-buttons.validation>
                     <p>Update Information</p>
                 </x-buttons.validation>
             </div>

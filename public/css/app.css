@@ -1110,6 +1110,9 @@ video {
 .pb-4 {
   padding-bottom: 1rem;
 }
+.pt-3 {
+  padding-top: 0.75rem;
+}
 .font-\[\'Comic_Sans_MS\'\] {
   font-family: 'Comic Sans MS';
 }
@@ -1521,6 +1524,10 @@ video {
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:p-4 {
+    padding: 1rem;
   }
 
   .lg\:p-10 {
