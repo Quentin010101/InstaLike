@@ -10,13 +10,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\DashbordController;
 
 class DashbordController extends Controller
 {
     protected $isActiveFeed = false;
     protected $isActiveProfile = false;
     protected $isActiveSettings = false;
+    protected $isActiveInvitation = false;
 
     public function show_feed()
     {
@@ -27,6 +27,7 @@ class DashbordController extends Controller
             'isActiveFeed' => $this->isActiveFeed,
             'isActiveProfile' => $this->isActiveProfile,
             'isActiveSettings' => $this->isActiveSettings,
+            'isActiveInvitation' => $this->isActiveInvitation,
         ]);
     }
 
@@ -38,6 +39,19 @@ class DashbordController extends Controller
             'isActiveFeed' => $this->isActiveFeed,
             'isActiveProfile' => $this->isActiveProfile,
             'isActiveSettings' => $this->isActiveSettings,
+            'isActiveInvitation' => $this->isActiveInvitation,
+        ]);
+    }
+
+    public function show_invitation()
+    {
+        $this->isActiveInvitation = true;
+
+        return view('user.dashbord', [
+            'isActiveFeed' => $this->isActiveFeed,
+            'isActiveProfile' => $this->isActiveProfile,
+            'isActiveSettings' => $this->isActiveSettings,
+            'isActiveInvitation' => $this->isActiveInvitation,
         ]);
     }
 
@@ -54,6 +68,7 @@ class DashbordController extends Controller
             'isActiveFeed' => $this->isActiveFeed,
             'isActiveProfile' => $this->isActiveProfile,
             'isActiveSettings' => $this->isActiveSettings,
+            'isActiveInvitation' => $this->isActiveInvitation,
         ]);
     }
 }

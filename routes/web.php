@@ -33,6 +33,7 @@ Route::middleware(['auth','verified'])->group( function(){
     Route::get('/dashbord/feed', [DashbordController::class, 'show_feed']);
     Route::get('/dashbord/profile', [DashbordController::class, 'show_profile']);
     Route::get('/dashbord/settings', [DashbordController::class, 'show_settings']);
+    Route::get('/dashbord/invitation', [DashbordController::class, 'show_invitation']);
 
     Route::post('/theme', [ThemeController::class, 'update']);
 });

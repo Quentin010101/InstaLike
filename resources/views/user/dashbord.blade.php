@@ -1,7 +1,7 @@
 <x-layout>
     <x-navigation></x-navigation>
     <div class="flex relative min-h-screen">
-        <x-aside_user :isActiveFeed="$isActiveFeed" :isActiveProfile="$isActiveProfile" :isActiveSettings="$isActiveSettings"></x-aside_user>
+        <x-aside_user :isActiveFeed="$isActiveFeed" :isActiveProfile="$isActiveProfile" :isActiveSettings="$isActiveSettings" :isActiveInvitation="$isActiveInvitation"></x-aside_user>
         <main class="md:ml-64 lg:ml-80 w-full pt-16 bg-gray-100 dark:bg-gray-800">
             @if (session('status'))
                 <div>
@@ -31,6 +31,13 @@
             <div class="mt-8 flex bg-gray-100 dark:bg-gray-800">
                 <div class="bg-white dark:bg-gray-600 mx-3 lg:mx-6 xl:mx-12 rounded-xl p-5 lg:p-10 w-full">
                     <livewire:settings-page>
+                </div>
+            </div>
+            @endif
+            @if ($isActiveInvitation)
+            <div class="mt-8 flex bg-gray-100 dark:bg-gray-800">
+                <div class="bg-white dark:bg-gray-600 mx-3 lg:mx-6 xl:mx-12 rounded-xl p-5 lg:p-10 w-full">
+                    <livewire:invitation>
                 </div>
             </div>
             @endif
