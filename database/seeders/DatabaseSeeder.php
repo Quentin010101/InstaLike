@@ -36,7 +36,13 @@ class DatabaseSeeder extends Seeder
             for($i = 0; $i < $randomInt; $i++):
                 DB::table('user_follower')->insert([
                     'follower_id' => $user->id,
-                    'following_id' => mt_rand(1,30),
+                    'following_id' => mt_rand(1,$nbUtilisateur),
+                ]);
+            endfor;
+            for($i = 0; $i < $randomInt; $i++):
+                DB::table('user_friends')->insert([
+                    'user_id' => $user->id,
+                    'friend_id' => mt_rand(1, $nbUtilisateur),
                 ]);
             endfor;
 
