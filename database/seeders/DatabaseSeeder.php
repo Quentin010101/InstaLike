@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder
                     'following_id' => mt_rand(1,$nbUtilisateur),
                 ]);
             endfor;
-            for($i = 0; $i < $randomInt; $i++):
+            $randomInt2 = mt_rand(6,15);
+            for($i = 0; $i < $randomInt2; $i++):
                 DB::table('user_friends')->insert([
                     'user_id' => $user->id,
                     'friend_id' => mt_rand(1, $nbUtilisateur),

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashbordController;
@@ -36,6 +37,8 @@ Route::middleware(['auth','verified'])->group( function(){
     Route::get('/dashbord/invitation', [DashbordController::class, 'show_invitation']);
 
     Route::post('/theme', [ThemeController::class, 'update']);
+
+    Route::get('/image', [ImageController::class, 'show']);
 });
 // Route::post('/comments/store/{id}', [CommentController::class , 'store']);
 
