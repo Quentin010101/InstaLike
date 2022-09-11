@@ -1,7 +1,7 @@
 <div>
     @forelse ($images as $image)
         <div>
-            <x-card.card :image="$image" :wire:key="$image->id"></x-card.card>
+            <x-card.card :image="$image" :friendList="$friendList" :wire:key="$image->id"></x-card.card>
         </div>
     @empty
         <div class="flex flex-col justify-center items-center text-gray-600 text-lg font-semibold h-full">

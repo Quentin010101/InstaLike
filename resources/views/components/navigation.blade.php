@@ -3,6 +3,9 @@
         <div>
             <h1 class="w-min font-['Comic_Sans_MS'] text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-violet-500">InstaLike</h1>
         </div>
+        <div class="mx-auto">
+            <livewire:search-bar></livewire:search-bar>
+        </div>
         <nav class="mr-0 ml-auto">
             <ul class="flex justify-end gap-x-3">
                 @auth

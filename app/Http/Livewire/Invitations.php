@@ -14,6 +14,10 @@ class Invitations extends Component
     
     public function mount()
     {   $is = Auth::user()->friends()->where('status', 'waiting')->get();
+        if($is->isEmpty()){
+            $this->emitTo('invitation-notification', 'renderNotification');
+        }
+        $is = $is->unique();
         $this->invitations_recieved = $is;
         foreach($is as $i):
             array_push($this->arrayId, $i->id);

@@ -5,6 +5,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashbordController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\ImageUploadController;
 
 /*
@@ -39,6 +40,8 @@ Route::middleware(['auth','verified'])->group( function(){
     Route::post('/theme', [ThemeController::class, 'update']);
 
     Route::get('/image', [ImageController::class, 'show']);
+
+    Route::get('/follower/unfollow/{id}', [FollowerController::class, 'unfollow']);
 });
 // Route::post('/comments/store/{id}', [CommentController::class , 'store']);
 

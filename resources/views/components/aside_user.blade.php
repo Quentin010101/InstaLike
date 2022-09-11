@@ -37,8 +37,9 @@
                         ]) stroke-width="{{ $isActiveProfile ? 2 : 1 }}" />
                     </x-links.nav>
                 </div>
-                <div class="text-lg py-1">
+                <div class="text-lg py-1 relative">
                     <x-links.nav name="Invitation" url="/dashbord/invitation" :isActive="$isActiveInvitation">
+                        <livewire:invitation-notification ></livewire:invitation-notification>
                         <svg xmlns="http://www.w3.org/2000/svg" @class([
                             'h-6 w-6 fill-transparent',
                             'stroke-red-400' => $isActiveInvitation,

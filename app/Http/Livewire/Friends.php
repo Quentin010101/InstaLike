@@ -15,6 +15,7 @@ class Friends extends Component
     public function mount()
     {
         $is = Auth::user()->friends()->where('status', 'accepted')->get();
+        $is = $is->unique();
         $this->friends = $is;
         foreach($is as $i):
             array_push($this->arrayId, $i->id);

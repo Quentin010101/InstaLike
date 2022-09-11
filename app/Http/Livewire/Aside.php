@@ -16,12 +16,20 @@ class Aside extends Component
     {
         $id = Auth()->user()->id;
 
+        $friends = DB::table('user_friends')
+        ->where('user_id', $id)
+        ->where('status', 'accepted')
+        ->get();
+        
+        $friends = $friends->unique('friend_id');
+
         return view('livewire.aside', [
             'user' => User::find(Auth()->user()->id, ['name', 'lastname']),
             'settings' => Setting::where('user_id', '=', $id )->first(),
             'images_count' => Image::where('user_id', '=', $id)->get()->count(),
-            'followers_count' => DB::table('user_follower')->where('follower_id', '=', $id)->get()->count(),
-            'followings_count' => DB::table('user_follower')->where('following_id', '=', $id)->get()->count(),
+            'followers_count' => DB::table('user_follower')->where('following_id', '=', $id)->get()->count(),
+            'followings_count' => DB::table('user_follower')->where('follower_id', '=', $id)->get()->count(),
+            'friends_count' => $friends->count(),
 
         ]);
     }

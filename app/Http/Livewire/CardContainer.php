@@ -14,6 +14,7 @@ class CardContainer extends Component
     public $images;
     public $nextCursor;
     public $hasMorePages;
+    public $friendList;
 
     public function mount()
     {
@@ -30,9 +31,18 @@ class CardContainer extends Component
         if ($this->hasMorePages !== null  && ! $this->hasMorePages) {
             return;
         }
-        // Retrieve user follower
-        $user_follower = DB::table('user_follower')->where('follower_id', '=', $user->id)->pluck('following_id');
-        $id_array = $user_follower->toArray();
+        // Retrieve user follower and user friend
+        $user_follower = DB::table('user_follower')
+                    ->where('follower_id', '=', $user->id)
+                    ->pluck('following_id');
+        $user_friend = DB::table('user_friends')
+                    ->where('user_id', $user->id)
+                    ->where('status', 'accepted')
+                    ->pluck('friend_id');
+
+        $array_follower = $user_follower->toArray();            
+        $array_friend = $user_friend->toArray();            
+        $id_array = array_unique(array_merge($array_follower, $array_friend));
 
         // Add user id
         array_push($id_array, $user->id);
@@ -41,6 +51,9 @@ class CardContainer extends Component
         ->cursorPaginate(3, ['id', 'path', 'description', 'user_id', 'created_at'], 'cursor', Cursor::fromEncoded($this->nextCursor));
 
         $this->images->push(...$images->items());
+
+        $friendList = $user->friends()->where('status', 'accepted')->pluck('friend_id')->toArray();
+        $this->friendList = $friendList;
 
         if ($this->hasMorePages = $images->hasMorePages()) {
             $this->nextCursor = $images->nextCursor()->encode();
