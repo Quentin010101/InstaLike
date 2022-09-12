@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
                 'city' => fake()->city(),
             ]);
             
-            $randomInt = mt_rand(2,6);
+            $randomInt = mt_rand(6,9);
             for($i = 0; $i < $randomInt; $i++):
                 DB::table('user_follower')->insert([
                     'follower_id' => $user->id,

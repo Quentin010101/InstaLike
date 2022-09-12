@@ -15,6 +15,14 @@
     <div class="min-h-screen">
         {{ $slot }}
     </div>
+    @if (session()->has('message_flash'))
+        <x-message>
+            <x-slot:message>
+                You have stoped following
+            </x-slot:message>
+            {{session('message_flash')}}
+        </x-message>
+    @endif
 </body>
     @livewireScripts
 </html>

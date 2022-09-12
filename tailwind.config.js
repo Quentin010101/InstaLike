@@ -30,10 +30,18 @@ module.exports = {
           'to' : { opacity: '0' },
 
         },
+        'disapear' : {
+          '100%' : { opacity: '0'  }
+        },
+        'd-none' : {
+          '100%' : { display: 'none' }
+        }
       },
       animation:{
         'heart' : 'heart 0.8s ease-in',
         'fade' : 'fade 1.5s ease-in 3s forwards',
+        'disapear' : 'disapear 0.5s ease-in 3s forwards',
+        'd-none' : ' d-none ease 3.5s forwards'
       }
     },
   },

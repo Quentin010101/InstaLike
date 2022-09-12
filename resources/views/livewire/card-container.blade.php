@@ -1,4 +1,4 @@
-<div>
+<div class="relative">
     @forelse ($images as $image)
         <div>
             <x-card.card :image="$image" :friendList="$friendList" :wire:key="$image->id"></x-card.card>
