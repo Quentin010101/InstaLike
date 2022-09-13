@@ -4,7 +4,7 @@
             @forelse ($invitations_recieved as $invitation)
             <li >
                 <div class="p-2">
-                    <div class="flex items-center dark:bg-gray-400 bg-gray-100 p-2 rounded-lg gap-x-4">
+                    <div class="flex items-center dark:bg-slate-400 bg-slate-100 p-2 rounded-lg gap-x-4">
                         <div class="h-7 w-7 overflow-hidden rounded-full border-2 border-red-400">
                             <img src="{{ '/storage/' . $invitation->settings->avatar }}" alt="avatar">
                         </div>

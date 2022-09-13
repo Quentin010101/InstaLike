@@ -31,9 +31,9 @@
             }
         }">
             <div class="w-full h-3 flex justify-center gap-x-5 py-5">
-                <div class="h-3 w-3 rounded-full bg-gray-600 dark:bg-gray-300 animate-bounce"></div>
-                <div class="h-3 w-3 rounded-full bg-gray-600 dark:bg-gray-300 animate-bounce"></div>
-                <div class="h-3 w-3 rounded-full bg-gray-600 dark:bg-gray-300 animate-bounce"></div>
+                <div class="h-3 w-3 rounded-full bg-slate-600 dark:bg-slate-300 animate-bounce"></div>
+                <div class="h-3 w-3 rounded-full bg-slate-600 dark:bg-slate-300 animate-bounce"></div>
+                <div class="h-3 w-3 rounded-full bg-slate-600 dark:bg-slate-300 animate-bounce"></div>
             </div>
         </div>
     @endif

@@ -20,7 +20,7 @@
             <h4>Comments</h4>
         </div>
     </div>
-    <div class="py-3 bg-gray-100 dark:bg-gray-400 rounded-lg">
+    <div class="py-3 bg-slate-100 dark:bg-slate-400 rounded-lg">
         <p class="p-3 text-gray-600 dark:text-gray-100 font-semibold text-md">{{ $image->description }}</p>
     </div>
     <div x-data="{ open: false }" class="min-h-full pt-4">
@@ -51,14 +51,14 @@
                 <div class="flex items-center gap-x-2">
                     <div
                         class="hidden xl:flex bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[3.5rem] h-[3.5rem] justify-center items-center">
-                        <div class="bg-white dark:bg-gray-600 rounded-full h-12 w-12 overflow-hidden opacity-80">
+                        <div class="bg-white dark:bg-slate-600 rounded-full h-12 w-12 overflow-hidden opacity-80">
                             <img src="{{ asset('storage/' . Auth()->user()->settings->avatar) }}" alt="user-avatar">
                         </div>
                     </div>
                     <div class="flex items-center flex-col xl:flex-row gap-x-2 gap-y-2 justify-center w-full xl:w-auto">
                         <div>
                             <input
-                                class="focus:outline-none border-2 border-transparent focus:border-gray-200 p-3 bg-gray-100 rounded-full w-96"
+                                class="focus:outline-none border-2 border-transparent focus:border-slate-200 p-3 bg-slate-100 rounded-full w-96"
                                 type="text" name="comment" id="comment" placeholder="Write your comment..."
                                 wire:model="comment">
                         </div>
@@ -78,7 +78,7 @@
         </div>
         <div class="flex justify-end pb-2 mt-3">
             <div
-                class="flex items-center text-gray-600 dark:text-gray-300 dark:hover:text-gray-100 hover:text-gray-500 duration-300">
+                class="flex items-center text-red-300 hover:text-red-400 duration-300">
                 <button x-text="open ? 'see less..' : 'see more..'"
                     class="font-mono w-24 px-2 py-1 font-semibold text-sm" @click="open = ! open"></button>
             </div>

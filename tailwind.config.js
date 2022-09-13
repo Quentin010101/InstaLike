@@ -8,6 +8,9 @@ module.exports = {
     './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
   ],
   theme: {
+    transitionProperty: {
+      'width' : 'width'
+    },
     backgroundSize: {
       'auto': 'auto',
       'cover': 'cover',
@@ -31,17 +34,17 @@ module.exports = {
 
         },
         'disapear' : {
+          '0%' : { opacity: '0' },
+          '5%' : { opacity: '1' },
+          '95%' : { opacity: '1' },
           '100%' : { opacity: '0'  }
         },
-        'd-none' : {
-          '100%' : { display: 'none' }
-        }
+
       },
       animation:{
         'heart' : 'heart 0.8s ease-in',
         'fade' : 'fade 1.5s ease-in 3s forwards',
-        'disapear' : 'disapear 0.5s ease-in 3s forwards',
-        'd-none' : ' d-none ease 3.5s forwards'
+        'disapear' : 'disapear 4.5s ease-in forwards',
       }
     },
   },

@@ -1,4 +1,4 @@
-<div class="mt-12 p-3 md:p-8 lg:p-10 bg-white dark:bg-gray-600 rounded-xl shadow h-fit md:w-[600px] lg:w-[800px] xl:w-[1000px] ">
+<div class="mt-12 p-3 md:p-8 lg:p-10 bg-white dark:bg-slate-600 rounded-xl shadow h-fit md:w-[600px] lg:w-[800px] xl:w-[1000px] ">
     @if(session()->has('message_validation'))
     <div class="flex flex-col gap-y-5 items-center">
         <div class="flex text-green-500 gap-x-2">

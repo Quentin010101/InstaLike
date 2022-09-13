@@ -1,5 +1,5 @@
 <div
-    class="bg-white dark:bg-gray-600 pt-12 px-3 md:px-6 xl:px-12 pb-6 rounded-xl my-5 2xl:w-[900px] xl:w-[700px] lg:w-[600px] shadow-md dark:shadow-gray-600 shadow-gray-300">
+    class="bg-white dark:bg-slate-600 pt-12 px-3 md:px-6 xl:px-12 pb-6 rounded-xl my-5 2xl:w-[900px] xl:w-[700px] lg:w-[600px] shadow-md dark:shadow-gray-600 shadow-gray-300">
     <div class="flex  pb-4">
         <div class="flex flex-col lg:items-center lg:flex-row gap-x-5 gap-y-3">
             <div class="flex gap-x-3">
@@ -7,7 +7,7 @@
                     <div
                         class="bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[4.5rem] h-[4.5rem] flex justify-center items-center">
                         <div
-                            class="rounded-full h-16 w-16 bg-white dark:bg-gray-600 overflow-hidden shadow-md shadow-gray-300 dark:shadow-gray-800">
+                            class="rounded-full h-16 w-16 bg-white dark:bg-slate-600 overflow-hidden shadow-md shadow-gray-300 dark:shadow-gray-800">
                             <img src="{{ asset('storage/' . $image->user->settings->avatar) }}" alt="avatar">
                         </div>
                     </div>

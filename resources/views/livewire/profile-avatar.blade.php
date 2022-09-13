@@ -3,7 +3,7 @@
     <form wire:submit.prevent="avatar_upload">
         <div class="relative flex justify-center">
             <div class="bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-56 h-56 flex justify-center items-center">
-                <div class="relative rounded-full h-52 w-52 overflow-hidden bg-white dark:bg-gray-600">
+                <div class="relative rounded-full h-52 w-52 overflow-hidden bg-white dark:bg-slate-600">
                     @if ($avatar)
                         <img src="{{ $avatar->temporaryUrl() }}">
                     @endif

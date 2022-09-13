@@ -1,12 +1,12 @@
 <aside
-    class="w-64 lg:w-80 border-r fixed top-16 left-0 hidden md:block md:h-screen bg-white dark:bg-gray-600 dark:border-gray-800">
+    class="w-64 lg:w-80 border-r fixed top-16 left-0 hidden md:block md:h-screen bg-white dark:bg-slate-600 dark:border-gray-800">
     <livewire:aside></livewire:aside>
     <div class="border-t dark:border-gray-800 py-8">
         <div class="flex justify-center mb-10">
             <a  href="/image">
                 <div
                     class="bg-200 bg-left hover:bg-right duration-300 bg-gradient-to-r from-red-400 via-purple-500 to-red-400 w-[7.5rem] h-12 flex justify-center items-center rounded-xl">
-                    <div class="bg-white dark:bg-gray-600 max-w-fit rounded-lg">
+                    <div class="bg-white dark:bg-slate-600 max-w-fit rounded-lg">
                         <div
                             class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 w-28 h-10 flex justify-center items-center ">
                             New Post <span class="text-lg">+</span>
