@@ -1,0 +1,3 @@
+<label class="before:block before:rounded-full before:h-4 before:w-4 before:bg-slate-400 peer-checked:before:bg-sky-600 peer-checked:before:border-white before:border-2 before:border-transparent px-3 py-2 rounded-xl border peer-checked:border-transparent border-slate-400 peer-checked:bg-sky-600 cursor-pointer flex items-center gap-2 peer-checked:text-white text-slate-400" for="{{ $for }}">
+    <span>{{ $slot }}</span>  
+</label>
