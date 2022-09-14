@@ -1,5 +1,5 @@
 <div class="relative md:focus-within:w-[400px] lg:focus-within:w-[600px] transition-width delay-200 md:w-[250px] lg:w-[300px] xl:w-[400px]">
-    <div x-data="{input: '', open: true}" class="bg-slate-100 dark:bg-slate-500 dark:focus-within:bg-transparent rounded-full border border-red-400 focus-within:bg-transparent ">
+    <div x-data="{input: '', open: true}" class="bg-slate-100 dark:bg-slate-500 dark:focus-within:bg-transparent transition rounded-full border border-red-400 focus-within:bg-transparent ">
         <div  class=" relative">
             <input @click.outside="input='' ; $wire.clear(); open=false" @click="open = true" x-model="input" placeholder="Search for anyone"
                 class="placeholder:italic dark:placeholder:text-slate-200 pl-12 py-2 bg-transparent rounded-full focus:outline-none w-full" type="text"

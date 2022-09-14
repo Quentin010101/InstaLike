@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\CommentController;
@@ -23,11 +24,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-// Route::get('/dashbord', [DashbordController::class, 'show_feed'])->middleware('auth','verified');
-// Route::get('/dashbord/show', [DashbordController::class, 'show'])->middleware('auth','verified');
-// Route::get('/dashbord/feed', [DashbordController::class, 'show_feed'])->middleware('auth','verified');
-// Route::get('/dashbord/profile', [DashbordController::class, 'show_profile'])->middleware('auth','verified');
-// Route::get('/dashbord/settings', [DashbordController::class, 'show_settings'])->middleware('auth','verified');
 
 Route::middleware(['auth','verified'])->group( function(){
     Route::get('/dashbord', [DashbordController::class, 'show_feed']);
@@ -43,11 +39,6 @@ Route::middleware(['auth','verified'])->group( function(){
 
     Route::get('/follower/unfollow/{id}', [FollowerController::class, 'unfollow']);
 });
-// Route::post('/comments/store/{id}', [CommentController::class , 'store']);
 
-// Route::post('/upload-image', [ImageUploadController::class, 'store_image']);
-
-// Route::get('/avatar', function(){
-//     return view('avatar');
-// });
-// Route::post('/avatar', [ImageUploadController::class, 'store_avatar']);
+Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/tag/{id}', [TagController::class, 'show']);

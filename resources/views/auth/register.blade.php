@@ -9,7 +9,7 @@
                     <img class="object-cover h-full blur-xs" src="{{ asset('asset/image/login_image.jpg') }}" alt="">
                 </div>
                 <div class="py-10 px-5 lg:px-10">
-                    <h2 class="text-xl font-semibold" >Create a new account</h2>
+                    <h2 class="text-xl font-semibold text-red-400" >Create a new account</h2>
                     <form class="py-10 px-2 lg:px-5 h-5/6 flex flex-col justify-center" action="/register" method="post">
                         @csrf
                         <div class="flex flex-col xl:flex-row">

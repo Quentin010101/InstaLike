@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Tag;
 use App\Models\User;
 use App\Models\Image;
 use Illuminate\Database\Seeder;
@@ -22,6 +23,13 @@ class DatabaseSeeder extends Seeder
         User::factory($nbUtilisateur)
         ->create();
 
+        //Tag
+        $arr = ['nature', 'beauty', 'food', 'art', 'technology', 'hobby', 'history', 'sport', 'science', 'funny', 'pets', 'tv', 'gaming', 'fashion'];
+        for($i = 0; $i < count($arr); $i++):
+        Tag::create([
+            'tag' => $arr[$i]
+        ]);
+        endfor;
         
         foreach(User::all() as $user):
             DB::table('settings')->insert([
@@ -47,15 +55,19 @@ class DatabaseSeeder extends Seeder
                 ]);
             endfor;
 
+
+
             $randomInt_img = mt_rand(3,7);
             for($i = 0; $i < $randomInt_img; $i++):
-                DB::table('images')->insert([
+                $im = DB::table('images')->insert([
                     'user_id' => $user->id,
                     'path' => 'Images/' . rand(1,61) . '.jpg',
                     'like' => mt_rand(2,560),
                     'description' => fake()->sentence(rand(12,22)),
                     'created_at' => fake()->dateTimeBetween('-20 days', now())
                 ]);
+
+
             endfor;
         endforeach;
 
@@ -75,6 +87,14 @@ class DatabaseSeeder extends Seeder
                 DB::table('likes')->insert([
                     'user_id' => mt_rand(1,30),
                     'image_id' => $image->id
+                ]);
+            endfor;
+
+            $randomInt3 = mt_rand(2,5);
+            for($i = 0; $i < $randomInt3; $i++):
+                DB::table('image_tag')->insert([
+                    'image_id' => $image->id,
+                    'tag_id' => mt_rand(1, count($arr)),
                 ]);
             endfor;
         endforeach;

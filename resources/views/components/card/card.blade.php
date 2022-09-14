@@ -21,9 +21,9 @@
                     <div class="flex gap-x-4">
                         <h3 class="text-base font-semibold text-gray-600 dark:text-gray-100">
                             {{ $image->user->settings->pseudo }}</h3>
-                            @if (in_array($image->user->id, $friendList))
-                                <h4 class="text-base font-semibold text-red-400">Friend</h4>
-                            @endif
+                        @if (in_array($image->user->id, $friendList))
+                            <h4 class="text-base font-semibold text-red-400">Friend</h4>
+                        @endif
                     </div>
                     <div class="flex gap-x-2 text-sm font-semibold text-gray-400 dark:text-gray-300">
                         @if ($image->user->settings->country)
@@ -40,7 +40,8 @@
             </div>
             @if (!in_array($image->user->id, $friendList) && $image->user->id != Auth()->user()->id)
                 <a class="group" href="/follower/unfollow/{{ $image->user->id }}">
-                    <div class="bg-red-400 group-hover:bg-red-600 duration-300 py-2 px-3 rounded-full text-sm font-semibold text-white w-fit h-fit">
+                    <div
+                        class="bg-red-400 group-hover:bg-red-600 duration-300 py-2 px-3 rounded-full text-sm font-semibold text-white w-fit h-fit">
                         <p>Unfollow -</p>
                     </div>
                 </a>
@@ -58,7 +59,18 @@
         <img class="object-scale-down  min-h-[300px] max-h-[50vh] w-full rounded-xl "
             src="{{ asset('storage/' . $image->path) }}" alt="image">
     </div>
-
+    <div class="flex gap-2 p-3 pb-0 justify-end">
+        @foreach ($image->tags as $tag)
+            <a href="/tag/{{ $tag->id }}">
+                <x-card.tag>
+                    {{ $tag->tag }}
+                </x-card.tag>
+            </a>
+            @if($loop->iteration > 5)
+                @break
+            @endif
+        @endforeach
+    </div>
     <div>
         <livewire:comment-form :image="$image" :wire:key="$image->id">
     </div>

@@ -9,7 +9,7 @@
                     <img class="object-cover h-full blur-xs" src="{{ asset('asset/image/login_image.jpg') }}" alt="">
                 </div>
                 <div class="p-10">
-                    <h2 class="text-xl font-semibold" >Sign into your account</h2>
+                    <h2 class="text-xl font-semibold text-red-400" >Sign into your account</h2>
                     <form class="p-5 h-5/6 flex flex-col justify-center gap-y-5" action="/login" method="post">
                         @csrf
                         <x-inputs.email id="email" name="email" label="Email"/>
