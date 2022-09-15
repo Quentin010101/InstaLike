@@ -9,7 +9,9 @@ class TagController extends Controller
 {
     public function show($id)
     {
-        $images = Tag::find($id)->images->unique('id');
+        $images = Tag::find($id)->images;
+        $images = $images->unique('path');
+        
 
         return view('tag.tagShow', [
             'images' => $images,

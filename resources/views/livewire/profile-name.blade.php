@@ -30,9 +30,12 @@
                 @endif
             </div>
             <div class="my-5 w-full flex justify-center">
-                <x-buttons.validation>
-                    <p>Update Information</p>
-                </x-buttons.validation>
+                <div wire:loading.class="hidden">
+                    <x-buttons.validation>
+                        <p>Update Information</p>
+                    </x-buttons.validation>
+                </div>
+                <x-loader.loader></x-loader.loader>    
             </div>
         </form>
     </div>

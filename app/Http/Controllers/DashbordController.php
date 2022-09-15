@@ -62,7 +62,7 @@ class DashbordController extends Controller
         $this->isActiveSettings = true;
 
         // Get theme
-        $setting = Setting::where('user_id', '=', $user->id);
+        $setting = Setting::where('user_id', $user->id);
 
         return view('user.dashbord', [
             'isActiveFeed' => $this->isActiveFeed,

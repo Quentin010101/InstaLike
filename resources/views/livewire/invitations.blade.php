@@ -13,12 +13,12 @@
                         </div>
                         <div class="flex gap-x-2 mr-0 ml-auto">
                             <form wire:submit.prevent="valid({{ $invitation->id }})">
-                                <div>
+                                <div wire:loading.class="hidden">
                                     <x-buttons.valide />
                                 </div>
                             </form>
                             <form wire:submit.prevent="invalid({{ $invitation->id }})">
-                                <div>
+                                <div wire:loading.class="hidden">
                                     <x-buttons.invalide />
                                 </div>
                             </form>

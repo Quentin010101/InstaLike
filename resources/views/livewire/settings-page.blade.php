@@ -37,11 +37,11 @@
             @csrf
             <div class="flex gap-x-5 pb-2  font-semibold">
                 <div>
-                    <input class="peer hidden" type="radio" name="privacy" id="private" value="private" @auth {{ $privacy == 'private' ? 'checked' : ''}} @endauth wire:model="privacy">
+                    <input class="peer hidden" type="radio" name="privacy" id="private" value="private" @auth {{ $privacy == 'private' ? 'checked' : ''}} @endauth wire:model.defer="privacy">
                     <x-inputs.label for="private">Private</x-inputs.label>
                 </div>
                 <div class="font-semibold text-gray-600 dark:text-gray-200 relative">
-                    <input class="peer hidden" type="radio" name="privacy" id="public" value="public" @auth {{ $privacy == 'public' ? 'checked' : ''}} @endauth wire:model="privacy">
+                    <input class="peer hidden" type="radio" name="privacy" id="public" value="public" @auth {{ $privacy == 'public' ? 'checked' : ''}} @endauth wire:model.defer="privacy">
                     <x-inputs.label for="public">Public</x-inputs.label>
                 </div>
             </div>
@@ -55,10 +55,13 @@
                     {{ session('message_privacy') }}
                 @endif
             </div>
-            <div>
-                <x-buttons.validation>
-                    <p>Validate privacy settings</p>
-                </x-buttons.validation>
+            <div class="my-5 w-full flex justify-center">
+                <div wire:loading.class="hidden">
+                    <x-buttons.validation>
+                        <p>Validate privacy settings</p>
+                    </x-buttons.validation>
+                </div>
+                <x-loader.loader></x-loader.loader>    
             </div>
         </form>
     </div>
