@@ -9,7 +9,8 @@ module.exports = {
   ],
   theme: {
     transitionProperty: {
-      'width' : 'width'
+      'left' : 'left',
+      'right' : 'right',
     },
     backgroundSize: {
       'auto': 'auto',

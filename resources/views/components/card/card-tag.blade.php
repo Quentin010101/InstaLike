@@ -1,12 +1,17 @@
-<div class="border border-blue-200 p-4 m-2">
-    <div class="overflow-hidden max-h-[600px] max-w-[600px]">
+<div class="p-4 shadow shadow-xl rounded-xl mx-3 my-6 relative group bg-white">
+    <div class="overflow-hidden max-h-[700px] max-w-[600px]">
         <img class="" src="{{ asset('/storage/' . $image->path) }}" alt="">
     </div>
-    @foreach ($image->tags as $tag)
-        <span 
-        @if ($tag->id == $id)
-            class="bg-red-400"                   
-        @endif
-        >{{$tag->tag}}</span>
-    @endforeach
+    <a href="/user/{{ $image->user->id }}">
+        <div class="absolute inset-x-10 bottom-10 ">
+            <div class="absolute right-0 bottom-0 flex gap-x-3 pl-3 h-16 w-16 group-hover:w-full group-hover:delay-100 duration-500 bg-red-400/75 rounded-full shadow-black/50 shadow-lg hover:bg-red-400/100">
+                <div class="h-14 w-14 rounded-full bg-white overflow-hidden absolute left-1 top-1">
+                    <img src="{{ asset('storage/' . $image->user->settings->avatar) }}" alt="image" loading="lazy">
+                </div>
+                <div class="overflow-hidden pl-14 opacity-0 group-hover:opacity-100 duration-300 group-hover:delay-500 flex justify-center items-center w-full">
+                    <span class="text-lg font-semibold text-gray-800">{{$image->user->settings->pseudo}}</span>
+                </div>
+            </div>
+        </div>
+    </a>
 </div>
