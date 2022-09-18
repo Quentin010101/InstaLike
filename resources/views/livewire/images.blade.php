@@ -44,13 +44,29 @@
             @error('image')
                 <x-errors.form_error :message="$message"/>
             @enderror
-            <div class="px-3 py-5">
-                <x-inputs.text name="description" type="text" label="Enter an image description" placeholder="Enter a description" value="" wire:model="description"/>
+            <div class="px-3 pt-5 pb-3">
+                <x-inputs.text name="description" type="text" label="Enter an image description" placeholder="Enter a description" value="" wire:model.defer="description"/>
+            </div>
+            <div class="px-3 pt-3 pb-5">
+                <div class="p-3">
+                    <h3 class="text-gray-400 dark:text-gray-800 font-semibold">Select the corresponding tag(s)</h3>
+                    <div class=" flex flex-wrap gap-2 pt-3">
+                        @foreach ($tags as $tag)
+                            <div>
+                                <input class="hidden peer" type="checkbox" value="{{ $tag->id }}" id="{{ $tag->tag }}" wire:model.defer="tag">
+                                <div class="bg-red-200 peer-checked:bg-red-400 duration-500  rounded ">
+                                    <label class="cursor-pointer px-3 py-2 block" for="{{ $tag->tag }}">{{ $tag->tag }}</label>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
             <div class="mx-auto fit-content p-5">
                 <x-buttons.validation>
                     <p>Upload Image</p>
                 </x-buttons.validation>
+                <x-loader.loader target="upload"></x-loader.loader>
             </div>
         </form>
     </div>

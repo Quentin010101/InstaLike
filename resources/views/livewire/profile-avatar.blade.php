@@ -31,7 +31,8 @@
                     <p>Click to upload</p>
                 </x-buttons.validation>
             </div>
-            <x-loader.loader></x-loader.loader>
+            <x-loader.loader target="avatar_upload"></x-loader.loader>
+            <x-loader.loader target="avatar"></x-loader.loader>
         </div>
     </form>
 </div>

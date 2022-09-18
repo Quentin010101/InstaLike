@@ -61,7 +61,7 @@
                         <p>Validate privacy settings</p>
                     </x-buttons.validation>
                 </div>
-                <x-loader.loader></x-loader.loader>    
+                <x-loader.loader target="submit"></x-loader.loader>    
             </div>
         </form>
     </div>

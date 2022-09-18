@@ -1,4 +1,4 @@
-<div wire:loading>
+<div wire:loading wire:target="{{ $target }}">
     <svg wire:loading.class="animate-spin" class="  h-10 w-10 stroke-red-400" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" width="200px" height="200px" viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid">

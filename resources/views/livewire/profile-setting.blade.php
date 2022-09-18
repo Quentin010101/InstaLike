@@ -6,18 +6,18 @@
                 <div class="flex flex-col lg:flex-row w-full">
                     <div class="w-full lg:px-10">
                         <x-inputs.text type="text" label="Country" name="country" value="{{ $country }}"
-                            placeholder="Enter your country" wire:model="country">
+                            placeholder="Enter your country" wire:model.defer="country">
                             </x-inputs>
                     </div>
                     <div class="w-full lg:px-10">
                         <x-inputs.text type="text" label="City" name="city" value="{{ $city }}"
-                            placeholder="Enter your city" wire:model="city">
+                            placeholder="Enter your city" wire:model.defer="city">
                             </x-inputs>
                     </div>
                 </div>
                 <div class="lg:px-10">
                     <x-inputs.text type="text" label="Short description about yourself" name="description"
-                        value="{{ $description }}" placeholder="Choose a new description" wire:model="description">
+                        value="{{ $description }}" placeholder="Choose a new description" wire:model.defer="description">
                         </x-inputs>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                         <p>Update Information</p>
                     </x-buttons.validation>
                 </div>
-                <x-loader.loader></x-loader.loader>    
+                <x-loader.loader target="submit"></x-loader.loader>    
             </div>
         </form>
     </div>

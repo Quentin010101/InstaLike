@@ -9,13 +9,15 @@ class TagController extends Controller
 {
     public function show($id)
     {
-        $images = Tag::find($id)->images;
+        $tag = Tag::find($id);
+        $images = $tag->images;
         $images = $images->unique('path');
         
 
         return view('tag.tagShow', [
             'images' => $images,
-            'id' => $id
+            'id' => $id,
+            'tagName' => $tag->tag,
         ]);
     }
 }

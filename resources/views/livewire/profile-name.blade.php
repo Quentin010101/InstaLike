@@ -5,17 +5,17 @@
             <div class="lg:px-10">
                 <div>
                     <x-inputs.text type="text" label="Name" name="name" value="{{ $name }}"
-                        placeholder="Enter your name" wire:model="name">
+                        placeholder="Enter your name" wire:model.defer="name">
                         </x-inputs>
                 </div>
                 <div>
                     <x-inputs.text type="text" label="Lastname" name="lastname" value="{{ $lastname }}"
-                        placeholder="Enter your lastname" wire:model="lastname">
+                        placeholder="Enter your lastname" wire:model.defer="lastname">
                         </x-inputs>
                 </div>
                 <div>
                     <x-inputs.text type="text" label="Pseudo" name="pseudo" value="{{ $pseudo }}"
-                        placeholder="Choose a new pseudo" wire:model="pseudo">
+                        placeholder="Choose a new pseudo" wire:model.defer="pseudo">
                         </x-inputs>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         <p>Update Information</p>
                     </x-buttons.validation>
                 </div>
-                <x-loader.loader></x-loader.loader>    
+                <x-loader.loader target="submit"></x-loader.loader>    
             </div>
         </form>
     </div>
