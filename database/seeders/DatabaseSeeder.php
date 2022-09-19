@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         ]);
         endfor;
         
+        $arrPrivacy=['public', 'private'];
         foreach(User::all() as $user):
             DB::table('settings')->insert([
                 'user_id' => $user->id,
@@ -38,6 +39,8 @@ class DatabaseSeeder extends Seeder
                 'avatar' => 'Avatar/avatar' . rand(1,11) . '.png',
                 'country' => fake()->country(),
                 'city' => fake()->city(),
+                'privacy' => $arrPrivacy[rand(0,1)],
+                'description' => fake()->sentence(rand(23,56))
             ]);
             
             $randomInt = mt_rand(6,9);

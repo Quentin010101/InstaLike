@@ -1,4 +1,4 @@
-<div class="p-4 shadow shadow-xl rounded-xl mx-3 my-6 relative group bg-white">
+<div class="p-4 shadow shadow-xl rounded-xl mx-3 my-6 relative group bg-white dark:bg-slate-600">
     <div class="overflow-hidden max-h-[700px] max-w-[600px]">
         <img class="" src="{{ asset('/storage/' . $image->path) }}" alt="">
     </div>
