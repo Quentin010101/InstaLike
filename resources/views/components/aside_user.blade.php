@@ -1,5 +1,5 @@
 <aside
-    class="w-64 lg:w-80 border-r fixed top-16 left-0 hidden md:block md:h-screen bg-white dark:bg-slate-600 dark:border-gray-800">
+    class="w-64 lg:w-80 border-r fixed top-16 left-0 hidden md:block md:h-screen bg-slate-100 dark:bg-slate-600 dark:border-gray-800">
     <livewire:aside></livewire:aside>
     <div class="border-t dark:border-gray-800 py-8">
         <div class="flex justify-center mb-10">

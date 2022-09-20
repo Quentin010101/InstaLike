@@ -63,9 +63,11 @@
                 </div>
             </div>
             <div class="mx-auto fit-content p-5">
-                <x-buttons.validation>
-                    <p>Upload Image</p>
-                </x-buttons.validation>
+                <div wire:loading.class="hidden">
+                    <x-buttons.validation>
+                        <p>Upload Image</p>
+                    </x-buttons.validation>
+                </div>
                 <x-loader.loader target="upload"></x-loader.loader>
             </div>
         </form>
