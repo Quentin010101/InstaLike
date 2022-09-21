@@ -18,9 +18,9 @@
                     <li class="odd:bg-slate-200 even:bg-slate-100 dark:odd:bg-slate-500 dark:even:bg-slate-400  mt-1 rounded-lg dark:hover:bg-slate-200 hover:bg-slate-400 duration-500  shadow-xl">
                         <a class="w-full h-full block px-4 py-3" href="/user/{{ $user->user_id }}">
                             <div class="flex gap-x-2 ">
-                                <div class="overflow-hidden h-7 w-7 rounded-full border-2 border-red-400">
-                                    <img src="{{ asset('storage/' . $user->avatar) }}" alt="avatar">
-                                </div>
+                                <x-avatar class="h-7 w-7 border-2">
+                                    {{ $user->avatar }}
+                                </x-avatar>
                                 <span class="text-slate-700">{{ $user->pseudo }}</span>
                             </div>
                         </a>

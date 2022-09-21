@@ -6,7 +6,7 @@
             <a  href="/image">
                 <div
                     class="bg-200 bg-left hover:bg-right duration-300 bg-gradient-to-r from-red-400 via-purple-500 to-red-400 w-[7.5rem] h-12 flex justify-center items-center rounded-xl">
-                    <div class="bg-white dark:bg-slate-600 max-w-fit rounded-lg">
+                    <div class="bg-slate-100 dark:bg-slate-600 max-w-fit rounded-lg">
                         <div
                             class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 w-28 h-10 flex justify-center items-center ">
                             New Post <span class="text-lg">+</span>

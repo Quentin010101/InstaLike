@@ -5,9 +5,9 @@
             <li >
                 <div class="p-2">
                     <div class="flex items-center dark:bg-slate-400 bg-slate-100 p-2 rounded-lg gap-x-4">
-                        <div class="h-7 w-7 overflow-hidden rounded-full border-2 border-red-400">
-                            <img src="{{ '/storage/' . $invitation->settings->avatar }}" alt="avatar">
-                        </div>
+                        <x-avatar class="h-7 w-7 border-2">
+                            {{ $invitation->settings->avatar }}
+                        </x-avatar>
                         <div class="font-semibold text-gray-600">
                             {{ $invitation->settings->pseudo }}
                         </div>
