@@ -55,8 +55,8 @@
             </div>
         </div>
     </div>
-    <div class="rounded-xl overflow-hidden min-h-[300px] max-h-[50vh] w-fit mx-auto">
-        <img class="object-scale-down  min-h-[300px] max-h-[50vh] w-full rounded-xl "
+    <div class="rounded-xl overflow-hidden min-h-[300px] max-h-[70vh] w-fit mx-auto">
+        <img class="object-scale-down  min-h-[300px] max-h-[70vh] w-full rounded-xl "
             src="{{ asset('storage/' . $image->path) }}" alt="image" loading="lazy">
     </div>
     <div class="flex gap-2 p-3 pb-0 justify-end">

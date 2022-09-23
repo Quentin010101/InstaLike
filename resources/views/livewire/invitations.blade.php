@@ -11,17 +11,23 @@
                         <div class="font-semibold text-gray-600">
                             {{ $invitation->settings->pseudo }}
                         </div>
-                        <div class="flex gap-x-2 mr-0 ml-auto">
-                            <form wire:submit.prevent="valid({{ $invitation->id }})">
-                                <div wire:loading.class="hidden">
-                                    <x-buttons.valide />
-                                </div>
-                            </form>
-                            <form wire:submit.prevent="invalid({{ $invitation->id }})">
-                                <div wire:loading.class="hidden">
-                                    <x-buttons.invalide />
-                                </div>
-                            </form>
+                        <div class="mr-0 ml-auto">
+                            <div class="flex gap-x-2 " wire:loading.class="hidden" wire:target="valid({{ $invitation->id }})" wire:target="invalid({{ $invitation->id }})">
+                                <form wire:submit.prevent="valid({{ $invitation->id }})">
+                                    <div >
+                                        <x-buttons.valide />
+                                    </div>
+                                </form>
+                                <form wire:submit.prevent="invalid({{ $invitation->id }})">
+                                    <div >
+                                        <x-buttons.invalide />
+                                    </div>
+                                </form>
+                            </div>
+                            <div>
+                                <x-loader.loader target="valid({{ $invitation->id }})"></x-loader.loader>
+                                <x-loader.loader target="invalid({{ $invitation->id }})"></x-loader.loader>
+                            </div>
                         </div>
                     </div>
                 </div>

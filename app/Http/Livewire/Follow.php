@@ -12,6 +12,7 @@ class Follow extends Component
     public $image;
     public $follow = true;
     public $exist = true;
+    public $listeners = ['updateFollow'];
 
     public function mount()
     {
@@ -30,6 +31,11 @@ class Follow extends Component
 
     }
 
+    public function updateFollow()
+    {
+        $this->mount();
+    }
+
     public function follow()
     {
         $image = $this->image;
@@ -46,6 +52,8 @@ class Follow extends Component
             ]);
             $this->follow = true;
         }
+
+        $this->emitTo('follow', 'updateFollow');
 
     }
 

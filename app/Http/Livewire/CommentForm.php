@@ -6,6 +6,7 @@ use App\Models\Like;
 use App\Models\Image;
 use App\Models\Comment;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class CommentForm extends Component
 {
@@ -26,10 +27,12 @@ class CommentForm extends Component
         $this->comments = Comment::where('image_id', '=', $this->image->id)->get()->sortByDesc('created_at');
         $this->count = $image->likes->count();
 
-        if (Like::where('user_id', '=' , Auth()->user()->id)->where('image_id', '=', $this->image->id)->exists()) {
-            $this->isLiked = true;
-        }else{
-            $this->isLiked = false;
+        $this->isLiked = false;
+
+        if(Auth::user()){
+            if (Like::where('user_id', '=' , Auth()->user()->id)->where('image_id', '=', $this->image->id)->exists()) {
+                $this->isLiked = true;
+            }
         }
     }
 

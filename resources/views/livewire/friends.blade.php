@@ -10,10 +10,17 @@
                     <div class="font-semibold text-gray-600">
                         {{ $friend->settings->pseudo }}
                     </div>
-                    <form wire:submit.prevent="invalid({{ $friend->id }})" class="mr-0 ml-auto">
-                        @csrf
-                        <x-buttons.invalide/>
-                    </form>
+                    <div class="mr-0 ml-auto">
+                        <div  wire:loading.class="hidden" wire:target="invalid({{ $friend->id }})">
+                            <form wire:submit.prevent="invalid({{ $friend->id }})" class="mr-0 ml-auto">
+                                @csrf
+                                <x-buttons.invalide/>
+                            </form>
+                        </div>
+                        <div>
+                            <x-loader.loader target="invalid({{ $friend->id }})"></x-loader.loader>
+                        </div>
+                    </div>
                 </div>
             </li>
         @empty

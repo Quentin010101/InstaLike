@@ -26,13 +26,14 @@ class FriendUser extends Component
     public function add()
     {
         $auth = Auth::user();
-        if(DB::table('user_friends')->where('user_id', $auth->id)->where('friend_id', $this->user->id)->exists()
-         || DB::table('user_friends')->where('user_id', $this->user->id)->where('friend_id', $auth->id)->exists()){
-            return;
+        if(DB::table('user_friends')->where('user_id', $auth->id)->where('friend_id', $this->user->id)->exists()){
+            DB::table('user_friends')->where('user_id', $auth->id)->where('friend_id', $this->user->id)->delete();
+        }elseif(DB::table('user_friends')->where('user_id', $this->user->id)->where('friend_id', $auth->id)->exists()){
+            DB::table('user_friends')->where('user_id', $this->user->id)->where('friend_id', $auth->id)->delete();
         }else{
             DB::table('user_friends')->insert([
-                'user_id' => $auth->id,
-                'friend_id' => $this->user->id,
+                'user_id' => $this->user->id,
+                'friend_id' => $auth->id,
                 'status' => 'waiting'
             ]);
         }

@@ -1,7 +1,7 @@
 <div>
     <div class="px-3 py-6 flex justify-between w-full font-semibold">
         <div class="flex items-center gap-2 text-gray-700 dark:text-gray-100 cursor-pointer">
-            <div class="flex gap-x-2 items-center" wire:click="like">
+            <div class="flex gap-x-2 items-center" @auth wire:click="like" @endauth>
                 <x-heroicon-o-heart @class([
                     'h-5',
                     'w-5',
@@ -13,10 +13,12 @@
             </div>
         </div>
         <div class="flex items-center gap-2 text-gray-700 dark:text-gray-100 font-semibold">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z" />
-            </svg>              
-            <h4 @class(['animate-heart' => $isCommented,])>{{ $comments->count() }}</h4>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z" />
+            </svg>
+            <h4 @class(['animate-heart' => $isCommented])>{{ $comments->count() }}</h4>
             <h4>Comments</h4>
         </div>
     </div>
@@ -46,39 +48,40 @@
                     @endforeach
                 </div>
             </div>
-            <form wire:submit.prevent="submit" class="py-4">
-                @csrf
-                <div class="flex items-center gap-x-2">
-                    <div
-                        class="hidden xl:flex bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[3.5rem] h-[3.5rem] justify-center items-center">
-                        <div class="bg-white dark:bg-slate-600 rounded-full h-12 w-12 overflow-hidden opacity-80">
-                            <img src="{{ asset('storage/' . Auth()->user()->settings->avatar) }}" alt="user-avatar">
+            @auth
+                <form wire:submit.prevent="submit" class="py-4">
+                    @csrf
+                    <div class="flex items-center gap-x-2">
+                        <div
+                            class="hidden xl:flex bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[3.5rem] h-[3.5rem] justify-center items-center">
+                            <div class="bg-white dark:bg-slate-600 rounded-full h-12 w-12 overflow-hidden opacity-80">
+                                <img src="{{ asset('storage/' . Auth()->user()->settings->avatar) }}" alt="user-avatar">
+                            </div>
+                        </div>
+                        <div class="flex items-center flex-col xl:flex-row gap-x-2 gap-y-2 justify-center w-full xl:w-auto">
+                            <div>
+                                <input
+                                    class="focus:outline-none border-2 border-transparent focus:border-slate-200 p-3 bg-slate-100 rounded-full w-96"
+                                    type="text" name="comment" id="comment" placeholder="Write your comment..."
+                                    wire:model="comment">
+                            </div>
+                            <div>
+                                <button
+                                    class="font-mono py-3 px-3 bg-green-100 border border-green-100 text-green-400 hover:border-green-300 hover:bg-green-300 bg-white duration-200 rounded-xl hover:text-white"
+                                    type="submit">Add Comment</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-center flex-col xl:flex-row gap-x-2 gap-y-2 justify-center w-full xl:w-auto">
-                        <div>
-                            <input
-                                class="focus:outline-none border-2 border-transparent focus:border-slate-200 p-3 bg-slate-100 rounded-full w-96"
-                                type="text" name="comment" id="comment" placeholder="Write your comment..."
-                                wire:model="comment">
+                    @error('comment')
+                        <div class="p-2">
+                            <x-errors.form_error :message="$message" />
                         </div>
-                        <div>
-                            <button
-                                class="font-mono py-3 px-3 bg-green-100 border border-green-100 text-green-400 hover:border-green-300 hover:bg-green-300 bg-white duration-200 rounded-xl hover:text-white"
-                                type="submit">Add Comment</button>
-                        </div>
-                    </div>
-                </div>
-                @error('comment')
-                    <div class="p-2">
-                        <x-errors.form_error :message="$message" />
-                    </div>
-                @enderror
-            </form>
+                    @enderror
+                </form>
+            @endauth
         </div>
         <div class="flex justify-end pb-2 mt-3">
-            <div
-                class="flex items-center text-red-300 hover:text-red-400 duration-300">
+            <div class="flex items-center text-red-300 hover:text-red-400 duration-300">
                 <button x-text="open ? 'see less..' : 'see more..'"
                     class="font-mono w-24 px-2 py-1 font-semibold text-sm" @click="open = ! open"></button>
             </div>

@@ -2,7 +2,9 @@
     <div class="overflow-hidden max-h-[700px] max-w-[600px]">
         <img class="" src="{{ asset('/storage/' . $image->path) }}" alt="">
     </div>
-    <livewire:follow :image="$image" :wire:key='$image->id'>
+    @auth
+    <livewire:follow :image="$image" :wire:key='$image->id'>       
+    @endauth
     <a href="/user/{{ $image->user->id }}">
         <div class="absolute inset-x-10 bottom-10 ">
             <div class="absolute right-0 bottom-0 flex gap-x-3 pl-3 h-16 w-16 group-hover:w-full group-hover:delay-100 delay-1000 duration-200 bg-red-400/75 rounded-full shadow-black/50 shadow-lg hover:bg-red-400/100">
