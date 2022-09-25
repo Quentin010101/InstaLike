@@ -1,13 +1,13 @@
 <x-layout>
-    <x-navigation></x-navigation>
-    <main class="pt-16 bg-slate-100 dark:bg-slate-700 min-h-screen">
+    <x-navigation2></x-navigation2>
+    <main class="bg-slate-100 dark:bg-slate-700 min-h-[800px] h-screen relative overflow-hidden">
         <section>
-            <div>
-                <h2 class="font-semibold text-red-400">Images Trending</h2>
-            </div>
-            <div>
-                 <x-carousel></x-carousel>               
+            <div class="opacity-75 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+                 <x-carousel :imagesFavorite="$imagesFavorite" />           
             </div>
         </section>
+        <div class="h-16 absolute top-1/3 left-1/2 -translate-x-1/2">
+            <livewire:search-bar></livewire:search-bar>
+        </div>
     </main>
 </x-layout>

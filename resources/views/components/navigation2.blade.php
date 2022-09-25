@@ -1,12 +1,7 @@
-<div class="w-full fixed top-0 left-0 z-30">
-    <header class="flex items-center p-4 bg-white dark:bg-slate-600 h-16 shadow-sm">
-        <div>
-            <a href="/">
-                <h1 class="w-min font-['Comic_Sans_MS'] text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-violet-500">InstaLike</h1>
-            </a>
-        </div>
-        <div class="ml-[100px]">
-            <livewire:search-bar></livewire:search-bar>
+<div class="w-full fixed top-0 left-0 z-30 backdrop-blur-md">
+    <header class="flex items-center p-4 h-16 xl:px-24">
+        <div class="">
+            <h1 class="w-min font-['Comic_Sans_MS'] text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-violet-500">InstaLike</h1>
         </div>
         <nav class="mr-0 ml-auto">
             <ul class="flex justify-end gap-x-5">

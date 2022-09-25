@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class carousel extends Component
 {
+    public $imagesFavorite;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($imagesFavorite)
     {
-        //
+        $this->imagesFavorite = $imagesFavorite;
     }
 
     /**

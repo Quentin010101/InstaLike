@@ -32,6 +32,7 @@ module.exports = {
           '50%' : { transform: 'scale(1.55)'}
         },
         'fade' : {
+          'from' : { opacity: '100' },
           'to' : { opacity: '0' },
 
         },
@@ -41,12 +42,18 @@ module.exports = {
           '95%' : { opacity: '1' },
           '100%' : { opacity: '0'  }
         },
+        'appear' : {
+            '0%' : { opacity: '0' },
+            '100%' : { opacity: '100'}
+        },
 
       },
       animation:{
         'heart' : 'heart 0.8s ease-in',
         'fade' : 'fade 1.5s ease-in 3s forwards',
+        'fade2' : 'fade 0.5s ease-in forwards',
         'disapear' : 'disapear 4.5s ease-in forwards',
+        'appear' : 'appear 1s ease-in forwards'
       }
     },
   },
