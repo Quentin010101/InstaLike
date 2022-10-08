@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             for($i = 0; $i < $randomInt_img; $i++):
                 $im = DB::table('images')->insert([
                     'user_id' => $user->id,
-                    'path' => 'Images/' . rand(1,61) . '.jpg',
+                    'path' => 'Images/' . rand(1,92) . '.jpg',
                     'like' => mt_rand(2,560),
                     'description' => fake()->sentence(rand(12,22)),
                     'created_at' => fake()->dateTimeBetween('-20 days', now())

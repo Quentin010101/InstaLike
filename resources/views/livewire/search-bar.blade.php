@@ -1,4 +1,4 @@
-<div class="h-full relative md:focus-within:w-[400px] lg:focus-within:w-[600px] transition-width duration-400 delay-200 md:w-[250px] lg:w-[300px] xl:w-[400px]">
+<div class="h-full relative md:focus-within:w-[400px] lg:focus-within:w-[600px] xl:focus-within:w-[800px] transition-width duration-400 delay-200 md:w-[250px] lg:w-[300px] xl:w-[400px]">
     <div x-data="{input: '', open: true}" class="h-full bg-slate-100 dark:bg-slate-500 transition rounded-full border border-red-400 ">
         <div  class="h-full  relative">
             <input @click.outside="if(open){input='' ; $wire.clear(); open=false;}" @click="open = true" x-model="input" placeholder="Search for anyone or anything .."

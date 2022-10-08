@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Image;
+use App\Models\Setting;
 use Livewire\Component;
 use Illuminate\Pagination\Cursor;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +41,10 @@ class CardContainer extends Component
                     ->where('status', 'accepted')
                     ->pluck('friend_id');
 
-        $array_follower = $user_follower->toArray();            
+        $followers = $user_follower->toArray();
+        $settingsPublic = Setting::whereIn('user_id', $followers)->where('privacy', 'public')->pluck('user_id');            
+
+        $array_follower = $settingsPublic->toArray();            
         $array_friend = $user_friend->toArray();            
         $id_array = array_unique(array_merge($array_follower, $array_friend));
 

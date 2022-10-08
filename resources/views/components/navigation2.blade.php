@@ -1,8 +1,5 @@
-<div class="w-full fixed top-0 left-0 z-30 backdrop-blur-md">
-    <header class="flex items-center p-4 h-16 xl:px-24">
-        <div class="">
-            <h1 class="w-min font-['Comic_Sans_MS'] text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-violet-500">InstaLike</h1>
-        </div>
+<div class="w-full fixed top-0 left-0 z-30">
+    <header class="flex items-center p-4 h-16">
         <nav class="mr-0 ml-auto">
             <ul class="flex justify-end gap-x-5">
                 @auth

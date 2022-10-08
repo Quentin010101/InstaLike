@@ -3,20 +3,22 @@
     <div class="flex  pb-4">
         <div class="flex flex-col lg:items-center lg:flex-row gap-x-5 gap-y-3">
             <div class="flex gap-x-3">
-                @if ($image->user->id == Auth()->user()->id)
-                    <div
-                        class="bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[4.5rem] h-[4.5rem] flex justify-center items-center">
+                <a href="/user/{{ $image->user->id }}">
+                    @if ($image->user->id == Auth()->user()->id)
                         <div
-                            class="rounded-full h-16 w-16 bg-white dark:bg-slate-600 overflow-hidden shadow-md shadow-gray-300 dark:shadow-gray-800">
+                            class="bg-gradient-to-r from-red-400 to-purple-500 rounded-full w-[4.5rem] h-[4.5rem] flex justify-center items-center">
+                            <div
+                                class="rounded-full h-16 w-16 bg-white dark:bg-slate-600 overflow-hidden shadow-md shadow-gray-300 dark:shadow-gray-800">
+                                <img src="{{ asset('storage/' . $image->user->settings->avatar) }}" alt="avatar">
+                            </div>
+                        </div>
+                    @else
+                        <div
+                            class="rounded-full h-16 w-16 border-4 border-red-400 overflow-hidden shadow-md shadow-gray-300 dark:shadow-gray-800">
                             <img src="{{ asset('storage/' . $image->user->settings->avatar) }}" alt="avatar">
                         </div>
-                    </div>
-                @else
-                    <div
-                        class="rounded-full h-16 w-16 border-4 border-red-400 overflow-hidden shadow-md shadow-gray-300 dark:shadow-gray-800">
-                        <img src="{{ asset('storage/' . $image->user->settings->avatar) }}" alt="avatar">
-                    </div>
-                @endif
+                    @endif
+                </a>
                 <div class="flex flex-col justify-center">
                     <div class="flex gap-x-4">
                         <h3 class="text-base font-semibold text-gray-600 dark:text-gray-100">
@@ -47,7 +49,6 @@
                 </a>
             @endif
         </div>
-
         <div class="text-gray-400 dark:text-gray-300 mr-0 ml-auto text-xs flex lg:items-center">
             <div>
                 <h3>{{ $image->created_at->format('d/m/Y') }}</h3>
@@ -66,12 +67,12 @@
                     {{ $tag->tag }}
                 </x-card.tag>
             </a>
-            @if($loop->iteration > 5)
-                @break
-            @endif
-        @endforeach
-    </div>
-    <div>
-        <livewire:comment-form :image="$image" :wire:key="$image->id">
-    </div>
+            @if ($loop->iteration > 5)
+            @break
+        @endif
+    @endforeach
+</div>
+<div>
+    <livewire:comment-form :image="$image" :wire:key="$image->id">
+</div>
 </div>
